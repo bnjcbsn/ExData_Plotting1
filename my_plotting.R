@@ -10,6 +10,7 @@ hpc$dtm<-as.POSIXct(paste(hpc$Date, hpc$Time), format="%d/%m/%Y %H:%M:%S")
 hpc$dte<-as.POSIXct(hpc$Date, format="%d/%m/%Y")
 hpc$tm<-as.POSIXct(hpc$Time, format="%H:%M:%S")
 hpc$Date0<-as.Date(hpc$Date, "%d/%m/%Y")
+hpc$wd<-(format(hpc$Date0, "%a"))
 
 ## subset for plots
 hpc1<-hpc[hpc$Date0==as.Date("2007-02-01")|hpc$Date0==as.Date("2007-02-02"),]
