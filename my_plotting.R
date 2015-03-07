@@ -1,5 +1,6 @@
 ## By Ben Jacobson, March 2015
 ## import and modify data
+## dataset source: https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
 
 hpc0<-read.csv("household_power_consumption.txt", nrows=5, sep=";")
 classes<-sapply(hpc0, class)
@@ -44,7 +45,7 @@ par(mfrow=c(2,2))
 ##4a
 plot(hpc1$dtm, hpc1$Global_active_power, type="l", ylab="Global Active Power", xlab="")
 ##4b
-plot(hpc1$dtm, hpc1$Voltage, type="l", ylab="Voltage", xlab="datetime")
+plot(hpc1$dtm, hpc1$Voltage, type="l", ylab="Voltage", xlab="datetime", lwd=.5)
 ##4c
 {yrange<-range(hpc1$Sub_metering_1)
  xrange<-range(hpc1$dtm)
@@ -58,3 +59,7 @@ plot(hpc1$dtm, hpc1$Global_reactive_power, type="l", ylab="Global_reactive_power
 dev.off()
 
 ##strptime(hpc[1,2], "%H:%M:%S")
+## test
+# png(file="myplot4.png",width=504,height=504)
+# plot(hpc1$dtm, hpc1$Voltage, type="l", ylab="Voltage", xlab="datetime")
+# dev.off()
