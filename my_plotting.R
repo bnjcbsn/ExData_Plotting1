@@ -1,6 +1,11 @@
 ## By Ben Jacobson, March 2015
 ## import and modify data
 ## dataset source: https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
+## see readme.md for more information
+
+## instructions
+## ensure the text file is in the working directory
+## the resulting image will be placed in the working directory
 
 hpc0<-read.csv("household_power_consumption.txt", nrows=5, sep=";")
 classes<-sapply(hpc0, class)
@@ -17,18 +22,18 @@ hpc$wd<-(format(hpc$Date0, "%a"))
 hpc1<-hpc[hpc$Date0==as.Date("2007-02-01")|hpc$Date0==as.Date("2007-02-02"),]
 
 ##plot1 hist
-png(file="myplot1.png",width=480,height=480)
+png(file="plot1.png",width=480,height=480)
 hist(hpc1$Global_active_power, xlab="Global Active Power (kilowatts)", col="red", main="Global Active Power")
 dev.off()
 
 ## plot 2 line of hourly data
-png(file="myplot2.png",width=480,height=480)
+png(file="plot2.png",width=480,height=480)
 plot(hpc1$dtm, hpc1$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="")
 dev.off()
 
 ## plot 3
 ## credit to http://www.statmethods.net/graphs/line.html
-png(file="myplot3.png",width=480,height=480)
+png(file="plot3.png",width=480,height=480)
 yrange<-range(hpc1$Sub_metering_1)
 xrange<-range(hpc1$dtm)
 plot(xrange, yrange, type="n", ylab="Energy sub metering", xlab="", ylim=yrange, xlim=xrange)
@@ -40,7 +45,7 @@ dev.off()
 
 
 ##plot 4
-png(file="myplot4.png",width=480,height=480)
+png(file="plot4.png",width=480,height=480)
 par(mfrow=c(2,2))
 ##4a
 plot(hpc1$dtm, hpc1$Global_active_power, type="l", ylab="Global Active Power", xlab="")
@@ -58,8 +63,8 @@ plot(hpc1$dtm, hpc1$Voltage, type="l", ylab="Voltage", xlab="datetime", lwd=.5)
 plot(hpc1$dtm, hpc1$Global_reactive_power, type="l", ylab="Global_reactive_power", xlab="datetime")
 dev.off()
 
-##strptime(hpc[1,2], "%H:%M:%S")
-## test
-# png(file="myplot4.png",width=504,height=504)
+## test section 
+# png(file="plottest.png",width=480,height=480)
+# par(bty="o")
 # plot(hpc1$dtm, hpc1$Voltage, type="l", ylab="Voltage", xlab="datetime")
 # dev.off()
