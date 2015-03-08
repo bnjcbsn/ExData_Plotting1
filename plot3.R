@@ -20,7 +20,7 @@ hpc1<-hpc[hpc$Date0==as.Date("2007-02-01")|hpc$Date0==as.Date("2007-02-02"),]
 
 ## plot 3
 ## credit to http://www.statmethods.net/graphs/line.html
-png(file="plot3.png",width=480,height=480)
+png(file="plot3.png",width=480,height=480, type="cairo-png")
 yrange<-range(hpc1$Sub_metering_1)
 xrange<-range(hpc1$dtm)
 plot(xrange, yrange, type="n", ylab="Energy sub metering", xlab="", ylim=yrange, xlim=xrange)

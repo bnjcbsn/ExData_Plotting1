@@ -19,6 +19,6 @@ hpc$Date0<-as.Date(hpc$Date, "%d/%m/%Y")
 hpc1<-hpc[hpc$Date0==as.Date("2007-02-01")|hpc$Date0==as.Date("2007-02-02"),]
 
 ##plot1 hist
-png(file="plot1.png",width=480,height=480)
+png(file="plot1.png",width=480,height=480, type="cairo-png")
 hist(hpc1$Global_active_power, xlab="Global Active Power (kilowatts)", col="red", main="Global Active Power")
 dev.off()

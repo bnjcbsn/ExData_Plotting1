@@ -19,7 +19,7 @@ hpc$Date0<-as.Date(hpc$Date, "%d/%m/%Y")
 hpc1<-hpc[hpc$Date0==as.Date("2007-02-01")|hpc$Date0==as.Date("2007-02-02"),]
 
 ##plot 4
-png(file="plot4.png",width=480,height=480)
+png(file="plot4.png",width=480,height=480, type="cairo-png")
 par(mfrow=c(2,2))
 ##4a
 plot(hpc1$dtm, hpc1$Global_active_power, type="l", ylab="Global Active Power", xlab="")
